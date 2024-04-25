@@ -4,6 +4,8 @@ import { MdLocationPin } from "react-icons/md";
 
 import { Link } from "react-router-dom";
 
+import styles from './User.module.css';
+
 const User = ({ 
     login,
     avatar_url,
@@ -12,23 +14,27 @@ const User = ({
     location,
 }: UserProps) => {
   return (
-    <div>
+    <div className={styles.user_main}>
         <img src={avatar_url} alt={login} />
         <h2>{login}</h2> 
         {location && (
-            <p>
+            <p className={styles.location_main}>
                 <MdLocationPin />
                 <span>{location}</span>
             </p>
         )}
-        <div>
+        <div className={styles.location_stats}>
             <div>
                 <p>Seguidores:</p>
-                <p>{followers}</p>
+                <p className={styles.numbers}>
+                    {followers}
+                </p>
             </div>
             <div>
                 <p>Seguindo:</p>
-                <p>{following}</p>
+                <p className={styles.numbers}>
+                    {following}
+                </p>
             </div>
         </div>
         <Link to={`/repositories/${login}`}>Ver melhores projetos</Link>
