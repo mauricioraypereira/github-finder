@@ -1,9 +1,9 @@
-import { UserProps } from "../types/user";
+import { UserProps } from "../../types/user";
 
-import Search from "../components/search/Search";
-import User from "../components/user/User";
-import Error from "../components/error/Error";
-import Loader from "../components/loader/Loader";
+import Search from "../../components/search/Search";
+import User from "../../components/user/User";
+import Error from "../../components/error/Error";
+import Loader from "../../components/loader/Loader";
 
 import { useState } from "react";
 
