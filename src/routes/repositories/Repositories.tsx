@@ -24,19 +24,26 @@ const Repositories = () => {
             const dataResponse = await response.json();
 
             setIsLoading(false);
+
+            setRepositories(dataResponse);
         };
 
         if (username) {
             loadResponse(username);
         }
-
-
-        
     }, [])
 
     return <div>
         <BackButton />
-        Repositórios de {username}
+        <h2>Explore os repositórios do usuário: {username}</h2>
+        {repositories && repositories.length === 0 && <p>Não há repositórios.</p>}
+        {repositories && repositories.length > 0 && (
+            <div>
+                {repositories.map((repo: RepositoriesProps, index: number) => (
+                    <p key={index}>{repo.name}</p>
+                ))}
+            </div>
+        )}
     </div>
 }
 
