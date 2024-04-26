@@ -36,7 +36,7 @@ const Repositories = () => {
         if (username) {
             loadResponse(username);
         }
-    }, [])
+    }, [username])
 
     if (!repositories && isLoading) return <Loader />;
 
