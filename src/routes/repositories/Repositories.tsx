@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import BackButton from '../../components/buttons/backbutton/BackButton';
 import Loader from '../../components/loader/Loader';
+import Repository from '../../components/repository/Repository'; 
 
 import styles from './Repositories.module.css';
 
@@ -39,8 +40,8 @@ const Repositories = () => {
         {repositories && repositories.length === 0 && <p>Não há repositórios.</p>}
         {repositories && repositories.length > 0 && (
             <div>
-                {repositories.map((repo: RepositoriesProps, index: number) => (
-                    <p key={index}>{repo.name}</p>
+                {repositories.map((repository: RepositoriesProps) => (
+                    <Repository key={repository.name} {...repository} />
                 ))}
             </div>
         )}
