@@ -26,7 +26,11 @@ const Repositories = () => {
 
             setIsLoading(false);
 
-            setRepositories(dataResponse);
+            let orderedRepositories = dataResponse.sort((repoA: RepositoriesProps, repoB: RepositoriesProps) => repoB.stargazers_count - repoA.stargazers_count);
+
+            orderedRepositories = orderedRepositories.slice(0, 5);
+
+            setRepositories(orderedRepositories);
         };
 
         if (username) {
